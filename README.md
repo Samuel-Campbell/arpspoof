@@ -1,4 +1,5 @@
-**Project Idea # 1: Privacy issues in public Wi-Fi networks (hotspots)**
+**Privacy issues in public Wi-Fi networks (hotspots)**
+-
 
 The objective of this project is to develop methods and techniques that will allow us to (i) detect privacy leakage in public Wi-Fi networks from different sources, e.g., leakage from user behaviors (e.g., browsing, apps usage), leakage from third party advertisers; (ii) perform empirical measurements of leakage and compare (some) hotspot providers across Montreal in terms of privacy-friendliness; and (iii) customize or package existing tools (and possibly create an app if appropriate) for investigation which data is currently being collected by hotspots, primarily to be used by researchers. 
 
@@ -19,10 +20,12 @@ Vienna, Austria, Oct. 2016.
 Some tools you may consider: OpenWPM (https://github.com/citp/OpenWPM), Wireshark, Ghostery
 
 **Dependencies**
+-
 
 1) OS: Linux
 2) nmap, wireshark, pyshark, python3, dsniff
 
-**License** 
+**License**
+- 
 
 This project is licensed under MIT. Contributions to this project are accepted under the same license.
