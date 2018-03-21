@@ -16,7 +16,7 @@ class File:
         """
         try:
             print("Loading " + filename)
-            root_directory = os.path.abspath(__file__ + "r/../../")
+            root_directory = os.path.abspath(__file__ + "r/../../../")
             rel_path = r'data/' + directory + '/' + filename
             file_path = os.path.join(root_directory, rel_path)
             file = open(file_path, "rb")
@@ -34,7 +34,7 @@ class File:
         :return: None
         """
 
-        root_directory = os.path.abspath(__file__ + "r/../../")
+        root_directory = os.path.abspath(__file__ + "r/../../../")
         if sys.platform == 'win32':
             bin_dir = 'data\\' + directory + '\\'
         else:

@@ -1,5 +1,5 @@
 import pyshark
-from main.file import File
+from main.util.file import File
 
 
 class PysharkWrapper:
@@ -20,6 +20,7 @@ class PysharkWrapper:
         :param timeout: int
         :return: None
         """
+        print('[+] Capturing Packets')
         capture = pyshark.LiveCapture()
         capture.sniff(timeout=timeout)
         self.__save_packets(capture)
@@ -41,6 +42,7 @@ class PysharkWrapper:
         :param capture: pyshark.capture.capture.Capture()
         :return: None
         """
+        print("[+] Saving packets")
         packet_list = []
         for i in range(len(capture)):
             packet_list.append(capture.next_packet())
@@ -55,3 +57,8 @@ class PysharkWrapper:
                 capture_list.append(packet_dict)
 
         File.save_binary(self.wifi_location, self.target_ip + '.bin', capture_list)
+
+
+if __name__ == '__main__':
+    ps = PysharkWrapper('home', '192.168.0.100')
+    ps.capture(15)

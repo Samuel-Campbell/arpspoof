@@ -8,7 +8,7 @@ class NmapWrapper:
     NMAP_COMMAND = 'sudo nmap -p 22,80,445,65123,56123 -O 192.168.0.*'
 
     def __init__(self):
-        self.router_ip = -1
+        self.router_ip = None
         self.target_ip = []
 
     def scan_network(self):

