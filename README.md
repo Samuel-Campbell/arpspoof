@@ -23,7 +23,22 @@ Some tools you may consider: OpenWPM (https://github.com/citp/OpenWPM), Wireshar
 -
 
 1) OS: Linux
-2) nmap, wireshark, pyshark, python3, dsniff
+2) nmap, wireshark, pyshark, python3, dsniff, tshark
+
+**Running the scrip**
+-
+1) cd to the ../src/ directory
+2) sudo -m python3 main.spoof_driver
+
+**Troubleshooting**
+* _Arpspoofing is creating a DOS._ Make sure you enabled port forwarding. 
+```
+iptables -A FORWARD -i eth1 -j ACCEPT
+iptables -A FORWARD -o eth1 -j ACCEPT
+sysctl -w net.ipv4.ip_forward=1
+sysctl -p /etc/sysctl.conf
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE   
+```
 
 **License**
 - 
